@@ -1,0 +1,31 @@
+backend:
+  name: git-gateway
+  branch: main
+media_folder: assets/img
+collections:
+  - name: 'pages'
+    label: 'Pages'
+    files:
+      - label: 'Home'
+        name: 'home'
+        file: 'content/markdown/home.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string', required: true }
+          - { label: 'Publish Date', name: 'date', widget: 'datetime', required: true }
+          - { label: 'Body', name: 'body', widget: 'markdown', required: true }
+      - label: 'About'
+        name: 'about'
+        file: 'content/markdown/about.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string', required: true }
+          - { label: 'Publish Date', name: 'date', widget: 'datetime', required: true }
+          - { label: 'Body', name: 'body', widget: 'markdown', required: true }
+  - label: 'Blog'
+    name: 'blog'
+    folder: 'content/markdown/blog'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}_{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime', required: true }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: true }
