@@ -51,6 +51,11 @@
   --bs-body-color: #212529;
   --bs-body-bg: #fff; }
 
+img{
+    width: 100%;
+    display: block;
+}
+
 *,
 *::before,
 *::after {
