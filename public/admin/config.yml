@@ -15,7 +15,7 @@ collections:
 
   - label: 'Recipe'
     name: 'recipe'
-    folder: 'content/markdown/recipe'
+    folder: 'content/markdown/recipes'
     create: true
     slug: '{{year}}-{{month}}-{{day}}_{{slug}}'
     fields:
