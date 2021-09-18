@@ -20,7 +20,7 @@ export default function Home() {
     });
 
     return (
-        <section>
+        <section className="text-center">
             {blogPostDict && renderBlogPosts()}
         </section>
     );

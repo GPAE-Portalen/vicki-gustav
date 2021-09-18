@@ -8,7 +8,7 @@ const NotFound = React.lazy(() => import("./pages/NotFound"));
 function App() {
     return (
         <Router>
-            <main className="container p-4 text-center">
+            <main className="container p-4">
                 <React.Suspense fallback={<div>Loading...</div>}>
                     <Switch>
                         <Route exact path="/" component={Home} />
