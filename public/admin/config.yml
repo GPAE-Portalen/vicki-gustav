@@ -19,9 +19,9 @@ collections:
     create: true
     slug: '{{year}}-{{month}}-{{day}}_{{slug}}'
     fields:
-      - { label: 'Name', name: 'name', widget: 'string', required: true }
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Publish Date', name: 'date', widget: 'datetime', required: true }
       - { label: 'Image', name: 'image', widget: 'image', required: true }
       - { label: 'Description', name: 'description', widget: 'markdown', required: true }
       - { label: 'Ingridients', name: 'ingridients', widget: 'list', required: true, field: {label: 'Ingridient', name: 'ingridient', widget: 'string'} }
-      - { label: 'Process', name: 'process',  widget: 'list', required: true, field: {label: 'Process step', name: 'process step', widget: 'string'} }
+      - { label: 'Process', name: 'process', widget: 'list', required: true, field: {label: 'Process step', name: 'process step', widget: 'string'} }
