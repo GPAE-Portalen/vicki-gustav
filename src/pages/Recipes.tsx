@@ -1,7 +1,19 @@
 import React, { useEffect, useState, Fragment } from 'react';
 
+import { IDictionary } from '../interfaces';
+
+interface IRecipePost {
+    title: string;
+    date: Date;
+    image: string;
+    description: string;
+    ingridients: string[];
+    process: string[];
+    updatedAt: Date;
+}
+
 export default function Recipes() {
-    const [recipeDict, setRecipeDict] = useState();
+    const [recipeDict, setRecipeDict] = useState<IDictionary<IRecipePost>>();
 
     useEffect(() => {
         if (!recipeDict) {
@@ -10,7 +22,7 @@ export default function Recipes() {
         }
     }, [recipeDict]);
 
-    const renderList = (list) => list.map(item => {
+    const renderList = (list: Array<any>) => list.map(item => {
         return (
             <li key={item} className="list-group-item">
                 {item}
@@ -18,10 +30,14 @@ export default function Recipes() {
         );
     });
 
-    const renderRecipes = () => Object.keys(recipeDict).map((key) => {
-        return (
-            <Fragment key={key}>
-                <article className="mb-5">
+    const renderRecipes = (): JSX.Element | JSX.Element[] => {
+        if(!recipeDict) {
+            return <Fragment />;
+        }
+        
+        return Object.keys(recipeDict).map((key) => {
+            return (
+                <article key={key} className="mb-5">
                     <div className="card mb-4 shadow border-0">
                         <div className="row g-0">
                             <div className="col-md-4">
@@ -35,7 +51,7 @@ export default function Recipes() {
                                     <div className="card-text" dangerouslySetInnerHTML={{ __html: recipeDict[key].description }} />
 
                                     <p className="card-text mt-5">
-                                        <small className="text-muted">Last updated: {new Date(recipeDict[key].date).toISOString().slice(0, 10)}</small>
+                                        <small className="text-muted">Last updated: {new Date(recipeDict[key].updatedAt).toISOString().slice(0, 10)}</small>
                                     </p>
                                 </div>
                             </div>
@@ -60,15 +76,15 @@ export default function Recipes() {
                         </div>
                     </div>
                 </article>
-            </Fragment>
-        );
-    });
+            );
+        });     
+    };
 
     return (
         <section>
             <h1 className="mb-3">Recipes</h1>
 
-            {recipeDict && renderRecipes()}
+            {renderRecipes()}
         </section>
     );
 }
