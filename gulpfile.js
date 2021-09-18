@@ -1,10 +1,19 @@
 const gulp = require('gulp');
 
+const clean = require('gulp-clean');
+
 const markdownToJSON = require('gulp-markdown-to-json');
 const marked = require('marked');
 
 const jsoncombine = require('gulp-jsoncombine');
 const beautify = require('gulp-jsbeautifier');
+
+
+// Clean JSON 
+gulp.task('cleanJson', async () => {
+    gulp.src("./content/json/**/*.json", { read: false })
+        .pipe(clean())
+});
 
 
 

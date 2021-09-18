@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.8.3",
     "front-matter": "^4.0.2",
     "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
     "gulp-jsbeautifier": "^3.0.1",
     "gulp-jsoncombine": "^1.0.4",
     "gulp-markdown-to-json": "^1.1.0",
@@ -20,8 +21,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "gulp markdown && gulp blogPosts && gulp recipes && gulp images && react-scripts start",
-    "build": "gulp markdown && gulp blogPosts && gulp recipes && gulp images && react-scripts build",
+    "start": "gulp cleanJson && gulp markdown && gulp blogPosts && gulp recipes && gulp images && react-scripts start",
+    "build": "gulp cleanJson && gulp markdown && gulp blogPosts && gulp recipes && gulp images && react-scripts build",
     "gulp-tasks": "gulp markdown && gulp blogPosts && gulp images",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -45,6 +46,8 @@
     ]
   },
   "devDependencies": {
-    "@types/node": "^16.7.0"
+    "@popperjs/core": "^2.10.1",
+    "@types/node": "^16.7.0",
+    "bootstrap": "^5.1.1"
   }
 }

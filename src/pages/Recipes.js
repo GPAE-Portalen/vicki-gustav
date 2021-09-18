@@ -66,7 +66,7 @@ export default function Recipes() {
 
     return (
         <section>
-            <h1 className="mb-5">Recipes</h1>
+            <h1 className="mb-3">Recipes</h1>
 
             {recipeDict && renderRecipes()}
         </section>
