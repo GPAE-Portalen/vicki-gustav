@@ -20,8 +20,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "gulp markdown && gulp blogPosts && gulp images && react-scripts start",
-    "build": "gulp markdown && gulp blogPosts && gulp images && react-scripts build",
+    "start": "gulp markdown && gulp blogPosts && gulp recipes && gulp images && react-scripts start",
+    "build": "gulp markdown && gulp blogPosts && gulp recipes && gulp images && react-scripts build",
     "gulp-tasks": "gulp markdown && gulp blogPosts && gulp images",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
