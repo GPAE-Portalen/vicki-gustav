@@ -3,23 +3,6 @@ backend:
   branch: main
 media_folder: assets/img
 collections:
-  - name: 'pages'
-    label: 'Pages'
-    files:
-      - label: 'Home'
-        name: 'home'
-        file: 'content/markdown/home.md'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string', required: true }
-          - { label: 'Publish Date', name: 'date', widget: 'datetime', required: true }
-          - { label: 'Body', name: 'body', widget: 'markdown', required: true }
-      - label: 'About'
-        name: 'about'
-        file: 'content/markdown/about.md'
-        fields:
-          - { label: 'Title', name: 'title', widget: 'string', required: true }
-          - { label: 'Publish Date', name: 'date', widget: 'datetime', required: true }
-          - { label: 'Body', name: 'body', widget: 'markdown', required: true }
   - label: 'Blog'
     name: 'blog'
     folder: 'content/markdown/blog'
@@ -29,3 +12,16 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Publish Date', name: 'date', widget: 'datetime', required: true }
       - { label: 'Body', name: 'body', widget: 'markdown', required: true }
+
+  - label: 'Recipe'
+    name: 'recipe'
+    folder: 'content/markdown/recipe'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}_{{slug}}'
+    fields:
+      - { label: 'Publish Date', name: 'date', widget: 'datetime', required: true }
+      - { label: 'Name', name: 'name', widget: 'string', required: true }
+      - { label: 'Description', name: 'description', widget: 'markdown' }
+      - { label: 'Image', name: 'image', widget: 'image' }
+      - { label: 'Ingridients', name: 'ingridients', widget: 'list', required: true }
+      - { label: 'Process', name: 'process',  widget: 'list', required: true }

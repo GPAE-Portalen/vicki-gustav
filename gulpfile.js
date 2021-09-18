@@ -30,6 +30,14 @@ gulp.task('blogPosts', async () => {
         .pipe(beautify())
         .pipe(gulp.dest("./src/data"));
 });
+gulp.task('recipes', async () => {
+    gulp.src("./content/json/recipes/*.json")
+        .pipe(jsoncombine("recipes.json", function (data, meta) {
+            return new Buffer(JSON.stringify(data));
+        }))
+        .pipe(beautify())
+        .pipe(gulp.dest("./src/data"));
+});
 
 
 // Moves images to public folder
