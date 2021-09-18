@@ -19,23 +19,22 @@ ingridients:
   - 1 small onion, diced
   - 1 red pepper, chopped
 process:
-  - 1. Prepare your ingredients
-  - 2. Cook your bacon in a nonstick pan. When the bacon is done, remove it from
+  - Prepare your ingredients
+  - Cook your bacon in a nonstick pan. When the bacon is done, remove it from
     the pan and place it on a plate topped with a paper towel to soak up the
     fat.
-  - 3. Keeping the bacon grease in the pan, cook 4 of your eggs. Don't forget to
+  - Keeping the bacon grease in the pan, cook 4 of your eggs. Don't forget to
     season with salt and pepper. Depending on the type of bacon, you may have
     more bacon grease than needed. You can always save this and keep it for
     another recipe!
-  - 4. While your eggs are cookng, toast your bread.
-  - 5. Once your bread is toasted, cover the bottom with a layer of a whatever
+  - While your eggs are cookng, toast your bread.
+  - Once your bread is toasted, cover the bottom with a layer of a whatever
     sauce you'd like. We typically use siracha mayo.
-  - 6. Put the lettuce, onion, and pepper onto your bread. Add the bacon
-    afterwards.
-  - 7. When your eggs are almost done, put the cheese on top so that it will
-    melt. You can cover your eggs to get the cheese even meltier, but be careful
-    not to overcook your eggs.
-  - "8. Once your eggs are cooked to your liking, remove them from the heat.
-    Place them on top of your now decorated slices of bread.8. "
-  - 9. Save the clean up for another day and enjoy your breakfast!
+  - Put the lettuce, onion, and pepper onto your bread. Add the bacon afterwards.
+  - When your eggs are almost done, put the cheese on top so that it will melt.
+    You can cover your eggs to get the cheese even meltier, but be careful not
+    to overcook your eggs.
+  - "Once your eggs are cooked to your liking, remove them from the heat. Place
+    them on top of your now decorated slices of bread.8. "
+  - Save the clean up for another day and enjoy your breakfast!
 ---
