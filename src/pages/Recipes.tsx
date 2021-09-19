@@ -1,16 +1,7 @@
 import React, { useEffect, useState, Fragment } from 'react';
+import { NavLink } from 'react-router-dom';
 
-import { IDictionary } from '../interfaces';
-
-interface IRecipePost {
-    title: string;
-    date: Date;
-    image: string;
-    description: string;
-    ingridients: string[];
-    process: string[];
-    updatedAt: Date;
-}
+import { IDictionary, IRecipePost } from '../interfaces';
 
 export default function Recipes() {
     const [recipeDict, setRecipeDict] = useState<IDictionary<IRecipePost>>();
@@ -22,22 +13,15 @@ export default function Recipes() {
         }
     }, [recipeDict]);
 
-    const renderList = (list: Array<any>) => list.map(item => {
-        return (
-            <li key={item} className="list-group-item">
-                {item}
-            </li>
-        );
-    });
 
-    const renderRecipes = (): JSX.Element | JSX.Element[] => {
+    const renderRecipeCards = (): JSX.Element | JSX.Element[] => {
         if(!recipeDict) {
             return <Fragment />;
         }
         
         return Object.keys(recipeDict).map((key) => {
             return (
-                <article key={key} className="mb-5">
+                <article key={key} className="col-12 col-xl-6">
                     <div className="card mb-4 shadow border-0">
                         <div className="row g-0">
                             <div className="col-md-4">
@@ -47,32 +31,16 @@ export default function Recipes() {
                             <div className="col-md-8">
                                 <div className="card-body">
                                     <h2 className="card-title">{recipeDict[key].title}</h2>
-
-                                    <div className="card-text" dangerouslySetInnerHTML={{ __html: recipeDict[key].description }} />
+                                    
+                                    <NavLink to={`/recipes/${encodeURI(recipeDict[key].title)}`} className="stretched-link">
+                                        Read the recipe
+                                    </NavLink>
 
                                     <p className="card-text mt-5">
                                         <small className="text-muted">Last updated: {new Date(recipeDict[key].updatedAt).toISOString().slice(0, 10)}</small>
                                     </p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div className="row g-3 pb-5">
-                        <div className="col-12 col-sm-6 col-md">
-                            <h3>Ingridients</h3>
-
-                            <ul className="list-group list-group list-group-flush shadow">
-                                {renderList(recipeDict[key].ingridients)}
-                            </ul>
-                        </div>
-
-                        <div className="col-12 col-sm-6 col-md">
-                            <h3>Process</h3>
-
-                            <ol className="list-group list-group-flush list-group-numbered shadow">
-                                {renderList(recipeDict[key].process)}
-                            </ol>
                         </div>
                     </div>
                 </article>
@@ -84,7 +52,9 @@ export default function Recipes() {
         <section>
             <h1 className="mb-3">Recipes</h1>
 
-            {renderRecipes()}
+            <div className="row g-3">
+                {renderRecipeCards()}
+            </div>
         </section>
     );
 }
