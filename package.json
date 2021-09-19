@@ -3,13 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "front-matter": "^4.0.2",
-    "gulp-clean": "^0.4.0",
-    "gulp-jsbeautifier": "^3.0.1",
-    "gulp-jsoncombine": "^1.0.4",
-    "gulp-markdown-to-json": "^1.1.0",
-    "marked": "^3.0.4",
-    "gulp": "^4.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
@@ -19,11 +12,19 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "gulp cleanJson && gulp markdown && gulp blogPosts && gulp recipes && gulp images && react-scripts start",
-    "build": "gulp cleanJson && gulp markdown && gulp blogPosts && gulp recipes && gulp images && react-scripts build",
-    "gulp-tasks": "gulp markdown && gulp blogPosts && gulp images",
+    "start": "run-s css gulping start-js",
+    "start-js": "react-scripts start",
+    "build": "run-s css gulping build-js",
+    "build-js": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "gulping": "gulp cleanJson && gulp generateJson && gulp combineJson && gulp copyImages",
+    "css": "run-s css-build css-compile css-prefix",
+    "css-watch": "run-p css-watch-dev css-watch-min",
+    "css-watch-dev": "npm run css-build -- --watch",
+    "css-watch-min": "npm run css-compile -- --watch",
+    "css-build": "node-sass src/styles/index.scss styles/index.css",
+    "css-compile": "node-sass --output-style compressed src/styles/index.scss src/styles/index.min.css",
+    "css-prefix": "postcss --no-map --use autoprefixer --output src/styles/index.min.css src/styles/index.min.css"
   },
   "eslintConfig": {
     "extends": [
@@ -44,10 +45,19 @@
     ]
   },
   "devDependencies": {
+    "front-matter": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-jsbeautifier": "^3.0.1",
+    "gulp-jsoncombine": "^1.0.4",
+    "gulp-markdown-to-json": "^1.1.0",
+    "marked": "^3.0.4",
+    "node": "^16.9.1",
     "@popperjs/core": "^2.10.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "@types/gulp": "^4.0.9",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.9.2",
     "@types/react": "^17.0.21",
@@ -55,8 +65,13 @@
     "@types/react-helmet": "^6.1.2",
     "@types/react-lazy-load-image-component": "^1.5.2",
     "@types/react-router-dom": "^5.1.9",
+    "autoprefixer": "^10.3.4",
     "bootstrap": "^5.1.1",
-    "node": "^16.9.1",
+    "gulp": "^4.0.2",
+    "node-sass": "^6.0.1",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.6",
+    "postcss-cli": "^8.3.1",
     "typescript": "^4.4.3"
   }
 }

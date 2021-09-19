@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/index.min.css';
 import App from './App';
 import '@popperjs/core';
 import 'bootstrap/dist/js/bootstrap';
