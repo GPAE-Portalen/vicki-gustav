@@ -24,8 +24,8 @@ export default function Recipes() {
                 <article key={key} className="col-12 col-xl-6">
                     <div className="card mb-4 shadow border-0">
                         <div className="row g-0">
-                            <div className="col-md-4">
-                                <img className="img-fluid rounded-start" src={`${process.env.PUBLIC_URL}${recipeDict[key].image}`} alt={recipeDict[key].title} />
+                            <div className="col-md-4" style={{ maxHeight: '250px', overflow: 'hidden' }}>
+                                <img className="img-fluid rounded-start" src={`${process.env.PUBLIC_URL}${recipeDict[key].image}`} alt={recipeDict[key].title} style={{ transform: 'translate(-50%, -50%)', top: '50%', left: '50%', position: 'relative' }} />
                             </div>
 
                             <div className="col-md-8">

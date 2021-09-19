@@ -22,9 +22,14 @@ export default function Recipe(props: RouteComponentProps<IRecipeRouteProps>) {
                 if (window.location.pathname === `/recipes/${encodeURI(recipeDict[key].title)}`) {
                     setRecipe(recipeDict[key]);
                     setRender(true);
-                } else if (Object.keys(recipeDict).length > 0 && Object.keys(recipeDict).indexOf(key) + 1 === Object.keys(recipeDict).length) {
-                    setIsNotFound(true);
+                    setIsNotFound(false);
                 }
+                
+                /*
+                if (!recipe && Object.keys(recipeDict).length > 0 && Object.keys(recipeDict).indexOf(key) + 1 === Object.keys(recipeDict).length) {
+                    setIsNotFound(true);
+                    console.log('2');
+                }*/
             });
         }
     }, [recipeDict]);
