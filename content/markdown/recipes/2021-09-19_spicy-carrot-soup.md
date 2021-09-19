@@ -3,6 +3,7 @@ title: Spicy Carrot Soup
 date: 2021-09-19T19:25:06.661Z
 image: /assets/img/img-1433.jpg
 description: A warm, autumny, spicy carrot soup with sweet potato and turnip.
+  Pairs great with garlic bread (as pictured here)!
 ingridients:
   - 1 tsp coconut oil
   - 400g carrot, peeled
