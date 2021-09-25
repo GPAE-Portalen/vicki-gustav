@@ -1,7 +1,7 @@
 ---
 title: Best Breakfast Sandwich
 date: 2021-09-18T13:35:53.247Z
-image: /assets/img/img_2416.jpg
+image: /assets/img/bacon_egg_sandwich.jpg
 description: >-
   This is a recipe for our go-to breakfast or brunch. This is **not** a meal to
   eat if you have lunch plans or even are expecting a big dinner. It'll keep you
