@@ -61,7 +61,7 @@ gulp.task('combineJson', async () => {
     }
 
     combine('blog', 'blog');
-    combine('recipies', 'recipies');
+    combine('recipes', 'recipes');
 });
 
 // Clean JSON data
