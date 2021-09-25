@@ -5,6 +5,7 @@ const marked = require('marked');
 const jsoncombine = require('gulp-jsoncombine');
 const beautify = require('gulp-jsbeautifier');
 const fs = require('fs');
+const del = require('del');
 
 // Clean JSON data
 gulp.task('cleanJson', async () => {
@@ -65,8 +66,7 @@ gulp.task('combineJson', async () => {
 
 // Clean JSON data
 gulp.task('cleanImages', async () => {
-    gulp.src("./public/assets/**/*", { read: false })
-        .pipe(clean())
+    return del('./public/assets/img', {force:true});
 });
 
 // Copy images from assets folder to public folder
