@@ -9,5 +9,4 @@ export interface IRecipePost {
     description: string;
     ingridients: string[];
     process: string[];
-    updatedAt: Date;
 }

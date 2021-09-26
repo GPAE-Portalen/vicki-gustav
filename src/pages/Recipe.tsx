@@ -15,22 +15,29 @@ export default function Recipe(props: RouteComponentProps<IRecipeRouteProps>) {
 
     useEffect(() => {
         if (!recipeDict) {
-            const data = require(`../data/recipes.json`);
+            const data = window.repository.getRecipePosts();
             setRecipeDict(data);
         } else {
-            Object.keys(recipeDict).forEach((key: string) => {
-                if (window.location.pathname === `/recipes/${encodeURI(recipeDict[key].title)}`) {
-                    setRecipe(recipeDict[key]);
-                    setRender(true);
-                    setIsNotFound(false);
+            let tempRecipePost: IRecipePost = {} as IRecipePost;
+
+            const foundRecipePost: boolean =  Object.keys(recipeDict).some((key: string) => {
+                const recipePostPath: string = `/recipes/${encodeURI(recipeDict[key].title)}/`;
+
+                if(window.location.pathname === recipePostPath) {
+                    tempRecipePost = recipeDict[key];
                 }
-                
-                /*
-                if (!recipe && Object.keys(recipeDict).length > 0 && Object.keys(recipeDict).indexOf(key) + 1 === Object.keys(recipeDict).length) {
-                    setIsNotFound(true);
-                    console.log('2');
-                }*/
+
+                return window.location.pathname === recipePostPath;
             });
+
+            if(!foundRecipePost) {
+                setIsNotFound(true);
+                return;
+            }
+
+            setRecipe(tempRecipePost);
+            setRender(true);
+            setIsNotFound(false);
         }
     }, [recipeDict]);
 
@@ -83,7 +90,7 @@ const RecipeContent = (props: IRecipePost): JSX.Element => {
                             <div className="card-text" dangerouslySetInnerHTML={{ __html: props.description }} />
 
                             <p className="card-text mt-5">
-                                <small className="text-muted">Last updated: {new Date(props.updatedAt).toISOString().slice(0, 10)}</small>
+                                <small className="text-muted">Last updated: {new Date(props.date).toISOString().slice(0, 10)}</small>
                             </p>
                         </div>
                     </div>

@@ -5,12 +5,27 @@ import App from './App';
 import '@popperjs/core';
 import 'bootstrap/dist/js/bootstrap';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import Repository from './repository';
+
+declare global {
+    type Guid = string;
+
+    interface Window {
+        repository: Repository;
+    }
+}
+
+(() => {
+  const rootElement: HTMLElement | null = document.getElementById('root');
+
+  window.repository = new Repository('./data/');
+
+  ReactDOM.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>, rootElement
+  );
+})();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

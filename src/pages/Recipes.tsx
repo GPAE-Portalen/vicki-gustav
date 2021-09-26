@@ -8,7 +8,7 @@ export default function Recipes() {
 
     useEffect(() => {
         if (!recipeDict) {
-            const data = require(`../data/recipes.json`);
+            const data = window.repository.getRecipePosts();
             setRecipeDict(data);
         }
     }, [recipeDict]);
@@ -32,12 +32,12 @@ export default function Recipes() {
                                 <div className="card-body">
                                     <h2 className="card-title">{recipeDict[key].title}</h2>
                                     
-                                    <NavLink to={`/recipes/${encodeURI(recipeDict[key].title)}`} className="stretched-link">
+                                    <NavLink to={`/recipes/${encodeURI(recipeDict[key].title)}/`} className="stretched-link">
                                         Read the recipe
                                     </NavLink>
 
                                     <p className="card-text mt-5">
-                                        <small className="text-muted">Last updated: {new Date(recipeDict[key].updatedAt).toISOString().slice(0, 10)}</small>
+                                        <small className="text-muted">Last updated: {new Date(recipeDict[key].date).toISOString().slice(0, 10)}</small>
                                     </p>
                                 </div>
                             </div>
