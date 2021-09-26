@@ -9,18 +9,11 @@ const del = require('del');
 
 // Clean JSON data
 gulp.task('cleanJson', async () => {
-    function createJsonData(dataJsonFileName) {
-        fs.writeFileSync(`./src/data/${dataJsonFileName}.json`, JSON.stringify({}))
-    }
-
     gulp.src("./content/json/**/*.json", { read: false })
         .pipe(clean())
 
     gulp.src("./src/data/**/*.json", { read: false })
         .pipe(clean())
-
-    createJsonData('blog');
-    createJsonData('recipes');
 });
 
 // Generate JSON data from markdown
@@ -62,6 +55,28 @@ gulp.task('combineJson', async () => {
 
     combine('blog', 'blog');
     combine('recipes', 'recipes');
+});
+
+// Create empty JSON data if it doesnt exist in MD
+gulp.task('createLeftoverJson', async () => {
+    function getJsonDataFilePath(dataJsonFileName) {
+        return `./src/data/${dataJsonFileName}.json`;
+    }
+
+    function createJsonData(dataJsonFileName) {
+        fs.writeFileSync(getJsonDataFilePath(dataJsonFileName), JSON.stringify({}))
+    }
+
+    const dataJsonFileNames = [
+        'blog',
+        'recipes'
+    ];
+
+    dataJsonFileNames.forEach(dataJsonFileName => {
+        if(!fs.existsSync(getJsonDataFilePath(dataJsonFileName))) {
+            createJsonData(dataJsonFileName);
+        }
+    });
 });
 
 // Clean JSON data
