@@ -17,7 +17,7 @@
     "build": "run-s css gulping build-js",
     "build-js": "react-scripts build",
     "test": "react-scripts test",
-    "gulping": "gulp cleanJson && gulp generateJson && gulp combineJson && createLeftoverJson && gulp cleanImages && gulp copyImages",
+    "gulping": "gulp cleanJson && gulp generateJson && gulp combineJson && gulp createLeftoverJson && gulp cleanImages && gulp copyImages",
     "css": "run-s css-build css-compile css-prefix",
     "css-watch": "run-p css-watch-dev css-watch-min",
     "css-watch-dev": "npm run css-build -- --watch",
